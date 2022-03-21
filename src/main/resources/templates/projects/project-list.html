@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace = "layouts :: pmaHeader"></head>
+<body>
+	<nav th:replace = "layouts :: pmaNavbar"></nav>
+	<div class="container">
+		<br>
+		<h4>Current Projects</h4>
+		<div th:replace = "layouts :: pmaGenericAlert"></div>
+		<hr>
+		<a th:href="@{/projects/new}" class="btn btn-primary btn-sm mb-3" sec:authorize="hasRole('ADMIN')">New Project</a>
+		<a th:href="@{/projects/timelines}" class="btn btn-primary btn-sm mb-3" sec:authorize="hasRole('ADMIN')">Project Timelines</a>
+		<div th:replace = "layouts :: pmaProjectTableAllEditPaginated"></div>
+	</div>
+</body>
+</html>
